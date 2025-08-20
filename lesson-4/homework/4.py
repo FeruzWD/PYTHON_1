@@ -1,52 +1,53 @@
-Python Dictionary and Set Exercises
-Dictionary Exercises
-1. Sort a Dictionary by Value
-Write a Python script to sort (ascending and descending) a dictionary by value.
+# 1. Sort a Dictionary by Value
+d = {2: 30, 1: 10, 3: 20}
+asc = dict(sorted(d.items(), key=lambda x: x[1]))
+desc = dict(sorted(d.items(), key=lambda x: x[1], reverse=True))
+print("Ascending:", asc)
+print("Descending:", desc)
 
-2. Add a Key to a Dictionary
-Write a Python script to add a key to a dictionary.
+# 2. Add a Key to a Dictionary
+d = {0: 10, 1: 20}
+d[2] = 30
+print("Updated dictionary:", d)
 
-Sample Dictionary:
-
-{0: 10, 1: 20}
-Expected Result:
-
-{0: 10, 1: 20, 2: 30}
-3. Concatenate Multiple Dictionaries
-Write a Python script to concatenate the following dictionaries to create a new one.
-
-Sample Dictionaries:
-
+# 3. Concatenate Multiple Dictionaries
 dic1 = {1: 10, 2: 20}
 dic2 = {3: 30, 4: 40}
 dic3 = {5: 50, 6: 60}
-Expected Result:
+new_dic = {}
+for dic in (dic1, dic2, dic3):
+    new_dic.update(dic)
+print("Concatenated dictionary:", new_dic)
 
-{1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
-4. Generate a Dictionary with Squares
-Write a Python script to generate and print a dictionary that contains a number (between 1 and n) in the form (x, x*x).
+# 4. Generate a Dictionary with Squares
+n = 5
+squares = {x: x*x for x in range(1, n+1)}
+print("Squares dictionary:", squares)
 
-Sample Dictionary (n = 5):
+# 5. Dictionary of Squares (1 to 15)
+squares_15 = {x: x*x for x in range(1, 16)}
+print("Squares 1–15:", squares_15)
+📘 Set Exercises
+python
+Копировать
+Редактировать
+# 1. Create a Set
+my_set = {1, 2, 3, 4}
+print("Created set:", my_set)
 
-{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
-5. Dictionary of Squares (1 to 15)
-Write a Python script to print a dictionary where the keys are numbers between 1 and 15 (both included) and the values are the square of the keys.
+# 2. Iterate Over a Set
+for item in my_set:
+    print("Set item:", item)
 
-Expected Output:
+# 3. Add Member(s) to a Set
+my_set.add(5)
+my_set.update([6, 7])
+print("After adding members:", my_set)
 
-{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100, 11: 121, 12: 144, 13: 169, 14: 196, 15: 225}
-Set Exercises
-1. Create a Set
-Write a Python program to create a set.
+# 4. Remove Item(s) from a Set
+my_set.remove(7)   # will give error if element not found
+print("After removing 7:", my_set)
 
-2. Iterate Over a Set
-Write a Python program to iterate over sets.
-
-3. Add Member(s) to a Set
-Write a Python program to add member(s) to a set.
-
-4. Remove Item(s) from a Set
-Write a Python program to remove item(s) from a given set.
-
-5. Remove an Item if Present in the Set
-Write a Python program to remove an item from a set if it is present in the set.
+# 5. Remove an Item if Present in the Set
+my_set.discard(10)   # no error even if 10 not present
+print("After discarding 10 (if present):", my_set)
